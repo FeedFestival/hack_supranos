@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { HomePage } from './tab1/home.page';
-import { ProfilePage } from './tab2/profile.page';
-import { RoutinePage } from './tab3/routine.page';
+import { HomePage } from './home/home.page';
+import { ProfilePage } from './profile/profile.page';
+import { RoutinePage } from './routine/routine.page';
 
 const routes: Routes = [
 	{
