@@ -27,9 +27,8 @@ export class HomeService {
         'If-Modified-Since': '0'
     };
 
-    testEnpoint(): Observable<any> {
-        const url = 'http://localhost:8080/home/' + 'testName';
-        // const urlTest = 'https://httpbin.org/get';
-        return this.http.get<any>(url, this.HttpDefaultOptions);
+    testEnpoint(addr: string): Observable<any> {
+        const url = 'https://' + addr + '/home/' + 'testName';
+        return this.http.get<any>(url, { observe: 'response', responseType : 'text' } as any);
     }
 }

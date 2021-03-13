@@ -9,8 +9,16 @@
     </ion-row>
 
     <ion-row>
-        <ion-button (click)="testEndpoint()">
-            Test EndPoint
+        <ion-button (click)="clear()">
+            Clear
+        </ion-button>
+    </ion-row>
+
+    <ion-row>
+
+        <ion-button *ngFor="let url of urls"
+            (click)="testEndpoint(url)">
+            Test EndPoint ({{url}})
         </ion-button>
     </ion-row>
 
@@ -21,4 +29,3 @@
     </ion-row>
 
 </ion-content>
-
