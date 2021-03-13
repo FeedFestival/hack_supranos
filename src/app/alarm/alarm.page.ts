@@ -13,7 +13,9 @@ export class AlarmPage {
     this.customPickerOptions = {
       buttons: [{
         text: 'Cancel',
-        handler: () => { return false; }
+        handler: () => { 
+          this.router.navigate(['/alarm'])
+        }
       }, {
         text: 'Next',
         handler:(value:any) => {

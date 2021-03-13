@@ -8,5 +8,13 @@ import { Component } from '@angular/core';
 export class ReviewAlarmPage {
 
   constructor() {}
-
+  public form = [
+    { val: 'M', isChecked: true },
+    { val: 'T', isChecked: true },
+    { val: 'W', isChecked: true },
+    { val: 'T', isChecked: true },
+    { val: 'F', isChecked: true },
+    { val: 'S', isChecked: true },
+    { val: 'S', isChecked: true }
+  ];
 }
