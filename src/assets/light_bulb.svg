@@ -13,10 +13,6 @@
         stroke: none;
       }
 
-      .cls-4 {
-        fill: #707070;
-      }
-
       .cls-5 {
         filter: url(#Path_58);
       }

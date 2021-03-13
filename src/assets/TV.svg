@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="84" height="84" viewBox="0 0 84 84">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        stroke: #000;
+      }
+
+      .cls-3 {
+        clip-path: url(#clip-path);
+      }
+
+      .cls-4 {
+        stroke: none;
+      }
+
+      .cls-5 {
+        filter: url(#Ellipse_8);
+      }
+    </style>
+    <filter id="Ellipse_8" x="0" y="0" width="84" height="84" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_35" data-name="Rectangle 35" class="cls-1" width="51" height="34.37"/>
+    </clipPath>
+  </defs>
+  <g id="Group_71" data-name="Group 71" transform="translate(-146 -125)">
+    <g class="cls-5" transform="matrix(1, 0, 0, 1, 146, 125)">
+      <g id="Ellipse_8-2" data-name="Ellipse 8" class="cls-2" transform="translate(9 6)">
+        <circle class="cls-4" cx="33" cy="33" r="33"/>
+        <circle class="cls-1" cx="33" cy="33" r="32.5"/>
+      </g>
+    </g>
+    <g id="Group_61" data-name="Group 61" transform="translate(163 147)">
+      <g id="Group_60" data-name="Group 60" class="cls-3">
+        <path id="Path_11" data-name="Path 11" d="M0,30.4V.021C.405.014.811,0,1.216,0Q21.008,0,40.8,0q5.1,0,10.2.02V30.4c-6.027,0-12.053.005-18.08-.031-.776,0-.761.381-.749.921s-.082,1.028.779,1c1.778-.067,3.561.029,5.338-.041.872-.034.8.465.755.995-.039.481.3,1.138-.706,1.135q-12.881-.041-25.762,0c-1,0-.684-.637-.717-1.127-.035-.526-.127-1.035.747-1,1.777.066,3.561-.028,5.338.041.8.031.841-.339.815-.942-.023-.539.084-.985-.774-.979C11.991,30.406,6,30.392,0,30.4m25.493-28.7c-7.589,0-15.179.011-22.768-.017-.781,0-1.055.133-1.051,1q.058,12.508,0,25.017c0,.876.284,1,1.06,1Q25.5,28.665,48.27,28.7c.918,0,1.047-.312,1.045-1.112q-.038-12.415,0-24.829c0-.827-.171-1.1-1.057-1.092-7.589.038-15.179.022-22.768.022" transform="translate(0 0)"/>
+      </g>
+    </g>
+  </g>
+</svg>

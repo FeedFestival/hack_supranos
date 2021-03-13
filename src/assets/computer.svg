@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="84" height="84" viewBox="0 0 84 84">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: silver;
+        stroke: #050505;
+      }
+
+      .cls-3 {
+        clip-path: url(#clip-path);
+      }
+
+      .cls-4 {
+        stroke: none;
+      }
+
+      .cls-5 {
+        filter: url(#Ellipse_11);
+      }
+    </style>
+    <filter id="Ellipse_11" x="0" y="0" width="84" height="84" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_39" data-name="Rectangle 39" class="cls-1" width="50" height="29" transform="translate(0 -0.053)"/>
+    </clipPath>
+  </defs>
+  <g id="Group_75" data-name="Group 75" transform="translate(-146 -237)">
+    <g class="cls-5" transform="matrix(1, 0, 0, 1, 146, 237)">
+      <g id="Ellipse_11-2" data-name="Ellipse 11" class="cls-2" transform="translate(9 6)">
+        <circle class="cls-4" cx="33" cy="33" r="33"/>
+        <circle class="cls-1" cx="33" cy="33" r="32.5"/>
+      </g>
+    </g>
+    <g id="Group_69" data-name="Group 69" transform="translate(162.935 262.506)">
+      <g id="Group_68" data-name="Group 68" class="cls-3" transform="translate(0.065 -0.453)">
+        <path id="Path_27" data-name="Path 27" d="M48.645,26.662c-1.546.034-3.094.011-4.569.011a12.625,12.625,0,0,0,.212-1.627c.014-7.882,0-15.764.02-23.645a1.37,1.37,0,0,0-.7-1.4H6.086a4.388,4.388,0,0,0-.529,1.4Q5.507,13.342,5.54,25.285a10.821,10.821,0,0,0,.189,1.388c-1.394,0-2.866.024-4.337-.011A1.369,1.369,0,0,0,0,27.386v1.351H50.037V27.386a1.375,1.375,0,0,0-1.391-.724M26.438,28.012a3.034,3.034,0,0,1-.351.037c-.354.018-.716-.012-1.073-.012s-.719.03-1.073.013a3.034,3.034,0,0,1-.351-.037c-.2-.034-.354-.34-.529-.523.176-.146.346-.411.528-.419.95-.042,1.9-.042,2.854,0,.182.008.353.274.529.421-.177.181-.334.485-.535.52m16.447-2.5H7.033V1.427H42.884Z" transform="translate(-0.037 0.21)"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { AlarmPageModule } from './alarm/alarm.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppliancesPageModule } from './appliances/appliances.module';
@@ -10,7 +11,8 @@ import { HomePageModule } from './home/home.module';
 
 const modules = [
     HomePageModule,
-    AppliancesPageModule
+    AppliancesPageModule,
+    AlarmPageModule
 ];
 
 @NgModule({
