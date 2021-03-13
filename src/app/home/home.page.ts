@@ -9,10 +9,7 @@ import { HomeService } from './home.service';
 export class HomePage {
 
     urls = [
-        // '86.120.171.33',
         '134a7098ec82.ngrok.io',
-        // '192.168.0.108',
-        // 'localhost'
     ];
 
     debugs: string[] = [];

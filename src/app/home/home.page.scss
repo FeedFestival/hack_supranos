@@ -1,0 +1,21 @@
+ion-content {
+    --background: transparent;
+}
+
+ion-button {
+    --border-radius: 50%;
+
+    &::part(native) {
+        --border-width: 2px;
+        --border-color: white;
+        --border-style: solid;
+
+        --background: #092c4d;
+    }
+}
+
+// ion-button::part(native) {
+//     --border-width: 2px;
+//     --border-color: red;
+//     --border-style: solid;
+// }
