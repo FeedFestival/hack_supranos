@@ -13,6 +13,11 @@ export class AppComponent implements OnInit {
     stars = [];
     showNiceStars = true;
     disableAnimations = false;
+    pageName: string;
+    user = {
+        name: 'Rock Roll',
+        email: 'rock.roll@forlife.com'
+    };
 
     @ViewChild('menuRef', { static: false }) menuRef: any;
 
@@ -67,7 +72,33 @@ export class AppComponent implements OnInit {
         }
 
         this.showNiceStars = path === '/';
+
+        this.setName(path);
+
         this.router.navigateByUrl(path);
     }
 
+    private setName(path: string) {
+        if (path === '/') {
+            return;
+        }
+
+        switch (path) {
+            case '/profile':
+                this.pageName = 'My Profile';
+                break;
+            case '/appliances':
+                this.pageName = 'My Appliances';
+                break;
+            case '/routine':
+                this.pageName = 'My Routine';
+                break;
+            case '/sleep':
+                this.pageName = 'My Sleep';
+                break;
+            case '/alarm':
+                this.pageName = 'My Alarms';
+                break;
+        }
+    }
 }

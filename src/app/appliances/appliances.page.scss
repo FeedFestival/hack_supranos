@@ -15,3 +15,13 @@ ion-content {
 ion-label {
     margin: auto;
 }
+
+ion-fab-button {
+    &::part(native) {
+        --border-width: 2px;
+        --border-color: white;
+        --border-style: solid;
+
+        --background: #092c4d;
+    }
+}
