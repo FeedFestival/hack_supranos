@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-alarm',
@@ -19,8 +19,12 @@ export class AlarmPage {
       }, {
         text: 'Next',
         handler:(value:any) => {
-          console.log(value);
-          this.router.navigate(['/review-alarm'], {state: value})
+          const extras: NavigationExtras = {
+            state: {
+              wakeHour: value
+            }
+          }
+          this.router.navigate(['/review-alarm'], extras)
         }
       }]
     }
