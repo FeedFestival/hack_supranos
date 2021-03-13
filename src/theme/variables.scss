@@ -74,6 +74,14 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  /** sleep theme **/
+  --ion-color-new: #8857a2;
+  --ion-color-new-rgb: 136,87,162;
+  --ion-color-new-contrast: #ffffff;
+  --ion-color-new-contrast-rgb: 255,255,255;
+  --ion-color-new-shade: #784d8f;
+  --ion-color-new-tint: #9468ab;
 }
 
 @media (prefers-color-scheme: dark) {
