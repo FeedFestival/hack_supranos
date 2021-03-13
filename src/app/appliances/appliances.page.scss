@@ -2,11 +2,16 @@ ion-content {
     --background: transparent;
 }
 
-ion-card {
-    --background: rgba(0,0,0,0.3);
-}
+// ion-card {
+//     --background: rgba(0, 0, 0, 0.3);
+// }
 
 .icon-size {
+    margin: auto;
     width: 50px;
     height: 50px;
+}
+
+ion-label {
+    margin: auto;
 }

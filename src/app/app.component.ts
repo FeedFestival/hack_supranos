@@ -16,15 +16,13 @@ export class AppComponent implements OnInit {
 
     @ViewChild('menuRef', { static: false }) menuRef: any;
 
-        constructor(
-            private router: Router,
-            private eventBus: EventBusService
-        ) {
-
+    constructor(
+        private router: Router,
+        private eventBus: EventBusService
+    ) {
         this.eventBus.on(Evt.NAVIGATE, (eventData: EventData) => {
             this.onNavigate(eventData.data.url);
         });
-
         this.eventBus.emit({ event: Evt.NAVIGATE, data: { url: '/' } });
     }
 

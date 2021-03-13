@@ -115,3 +115,36 @@ $star-color: #fff06e;
 ion-content {
     --background: transparent;
 }
+
+.menu-ion-content {
+    --background: #092c4d;
+
+    ion-list {
+        background: transparent;
+        --background: #092c4d;
+
+        ion-item {
+            background: transparent;
+            --background: #092c4d;
+            color: white !important;
+        }
+
+        ion-icon {
+            --color: white !important;
+            color: white !important;
+        }
+    }
+}
+
+.logo {
+    width: 110px;
+    float: right;
+    right: 15px;
+    position: absolute;
+    display: inline-flex;
+    transition: width 1s;
+}
+
+.logo.logo-small {
+    width: 70px;
+}
