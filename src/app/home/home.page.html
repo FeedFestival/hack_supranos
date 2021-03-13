@@ -1,6 +1,6 @@
 <ion-content class="ion-padding">
 
-    <ion-row style="margin-top: 50%">
+    <ion-row style="margin-top: 165px">
         <ion-col style="text-align: center;">
 
             <ion-button style="width: 150px; height: 150px;">
@@ -14,7 +14,7 @@
     <ion-row>
         <ion-col>
 
-            <ion-button style="width: 70px; height: 70px; float: right;">
+            <ion-button style="width: 70px; height: 70px; float: right;" (click)="navigate('/routine')">
                 <span style="word-break: break-all; font-size: 0.7rem; text-transform: none;">
                     Routine
                 </span>
@@ -25,7 +25,8 @@
     <ion-row>
         <ion-col>
 
-            <ion-button style="width: 100px; height: 100px;">
+            <ion-button style="width: 100px; height: 100px;" (click)="navigate('/alarm')">
+
                 <span style="word-break: break-all; font-size: 1rem; text-transform: none;">
                     Alarm <br /> 8:00 AM
                 </span>

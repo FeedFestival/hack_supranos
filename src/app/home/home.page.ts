@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Evt } from '../app.constants';
+import { EventBusService } from '../event-bus.service';
 import { HomeService } from './home.service';
 
 @Component({
@@ -6,7 +8,7 @@ import { HomeService } from './home.service';
     templateUrl: 'home.page.html',
     styleUrls: ['home.page.scss']
 })
-export class HomePage {
+export class HomePage implements OnInit, OnDestroy {
 
     urls = [
         '134a7098ec82.ngrok.io',
@@ -15,8 +17,13 @@ export class HomePage {
     debugs: string[] = [];
 
     constructor(
+        private eventBus: EventBusService,
         private homeService: HomeService
-    ) { }
+    ) {
+    }
+
+    ngOnInit() {
+    }
 
     testEndpoint(addr: string) {
         const start = 'Start Test';
@@ -32,5 +39,13 @@ export class HomePage {
 
     clear() {
         this.debugs = [];
+    }
+
+    navigate(path: string) {
+        this.eventBus.emit({ event: Evt.NAVIGATE, data: { url: path } });
+    }
+
+    ngOnDestroy() {
+        console.log('');
     }
 }
