@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-review-alarm',
@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
   styleUrls: ['review-alarm.page.scss']
 })
 export class ReviewAlarmPage {
-  defaultTime: any;
   public form = [
     { text: 'Monday', isChecked: true, value: '1990-02-19T07:43Z' },
     { text: 'Tuesday', isChecked: true, value: '1990-02-19T07:43Z' },
@@ -18,10 +17,14 @@ export class ReviewAlarmPage {
     { text: 'Sunday', isChecked: true, value: '1990-02-19T07:43Z' }
   ];
 
-  constructor(private router: Router) {
-    const navigation = this.router.getCurrentNavigation();
-    this.defaultTime = navigation.extras.state;
-
+  constructor(private route: ActivatedRoute, private router: Router) {
+    this.route.queryParams.subscribe(() => {
+      if (this.router.getCurrentNavigation().extras.state) {
+        this.form.forEach((entry) => {
+          entry.value = this.router.getCurrentNavigation().extras.state.wakeHour;
+        })
+      }
+    });
   }
 
   saveAlarm(): void {
