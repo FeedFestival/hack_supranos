@@ -38,3 +38,7 @@ export const routineInfo = {
         info: 'Stick to a sleep schedule. Often, we set an alarm for when it’s time to wake up but fail to do so for when it’s time to go to sleep – but don’t worry, we got you covered. We’ll remind you.'
     }
 };
+
+export const getDayOfWeek = [
+    'Sunday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
+];

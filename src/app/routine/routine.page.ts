@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
-import { routineInfo, routineNames } from './routine.constants';
+import { getDayOfWeek, routineInfo, routineNames } from './routine.constants';
 import { RoutineService } from './routine.service';
 
 @Component({
@@ -25,8 +25,10 @@ export class RoutinePage implements OnInit {
         const fullSpace = 100;
         const hours = 24;
         const percentPerHour = fullSpace / hours;
+        const today = new Date();
+        const day = getDayOfWeek[today.getDay()];
 
-        this.routineService.getRoutines()
+        this.routineService.getRoutines(day)
             .subscribe(result => {
                 this.groups = result.events;
 
@@ -35,7 +37,6 @@ export class RoutinePage implements OnInit {
 
                 let totalPercent = 0;
 
-                const today = new Date();
                 const hour = today.getHours();
                 // const hour = 19;
                 let firstNotPassedFound = false;

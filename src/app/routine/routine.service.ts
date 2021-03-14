@@ -27,8 +27,8 @@ export class RoutineService {
         'If-Modified-Since': '0'
     };
 
-    getRoutines(): Observable<any> {
-        const url = 'https://0a6d7ff92034.ngrok.io/routine/Monday';
+    getRoutines(day: any): Observable<any> {
+        const url = 'https://0a6d7ff92034.ngrok.io/routine/' + day;
         return this.http.get<any>(url);
     }
 }
