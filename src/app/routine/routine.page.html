@@ -7,7 +7,7 @@
 <ion-list style="min-height: 100%; padding: 0;">
 
     <div *ngFor="let group of groups" class="time-item" [ngClass]="group.class"
-        [style.height]="group.height">
+        [style.height]="group.height" (click)="presentAlertConfirm(group.code)">
 
         <div class="left-side-event"></div>
         <div class="event-line"></div>

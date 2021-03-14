@@ -93,8 +93,8 @@ export class AppComponent implements OnInit {
             case '/routine':
                 this.pageName = 'My Routine';
                 break;
-            case '/sleep':
-                this.pageName = 'My Sleep';
+            case '/sleep-facts':
+                this.pageName = 'Our Sleep Facts';
                 break;
             case '/alarm':
                 this.pageName = 'My Alarms';

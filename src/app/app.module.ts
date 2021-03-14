@@ -9,16 +9,20 @@ import { AppComponent } from './app.component';
 import { AppliancesPageModule } from './appliances/appliances.module';
 import { HomePageModule } from './home/home.module';
 import { RoutinePageModule } from './routine/routine.module';
+import { SleepFactsPageModule } from './sleep-facts/sleep-facts.module';
 
 const modules = [
     HomePageModule,
     AppliancesPageModule,
     AlarmPageModule,
-    RoutinePageModule
+    RoutinePageModule,
+    SleepFactsPageModule
 ];
 
 @NgModule({
-    declarations: [AppComponent],
+    declarations: [
+        AppComponent
+    ],
     entryComponents: [],
     imports: [
         BrowserModule,

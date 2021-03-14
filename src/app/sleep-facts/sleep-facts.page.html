@@ -1,0 +1,7 @@
+<ion-content>
+    <ion-slides style="height: 100%;" pager="true" [options]="slideOpts">
+        <ion-slide *ngFor="let imgId of imagesIds;">
+            <ion-img [src]="'assets/Article ' + imgId + '.svg'"></ion-img>
+        </ion-slide>
+    </ion-slides>
+</ion-content>

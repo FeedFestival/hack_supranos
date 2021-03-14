@@ -5,6 +5,7 @@ import { AppliancesPage } from './appliances/appliances.page';
 import { HomePage } from './home/home.page';
 import { ProfilePage } from './profile/profile.page';
 import { RoutinePage } from './routine/routine.page';
+import { SleepFactsPage } from './sleep-facts/sleep-facts.page';
 
 const routes: Routes = [
 	{
@@ -22,6 +23,10 @@ const routes: Routes = [
 	{
 		path: 'appliances',
 		component: AppliancesPage
+	},
+    {
+		path: 'sleep-facts',
+		component: SleepFactsPage
 	},
 	{
 		path: 'alarm',

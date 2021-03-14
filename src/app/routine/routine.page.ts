@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
+import { routineInfo, routineNames } from './routine.constants';
 import { RoutineService } from './routine.service';
 
 @Component({
@@ -13,18 +15,9 @@ export class RoutinePage implements OnInit {
     gradientHeight = '';
     margin = '';
 
-    routineNames = {
-        wakeUp: 'Wake Up',
-        lastNap: 'Last Nap',
-        lastCoffee: 'Last Coffe',
-        lastHeavyMeal: 'Last Heavy Meal',
-        lastWorkout: 'Last Workout',
-        lastDrink: 'Last Drink',
-        goToSleep: 'Go To Sleep'
-    };
-
     constructor(
-        private routineService: RoutineService
+        private routineService: RoutineService,
+        private alertController: AlertController
     ) { }
 
     ngOnInit() {
@@ -62,7 +55,7 @@ export class RoutinePage implements OnInit {
                         g.class = 'next-in-line';
                     }
 
-                    g.label = g.hour + ':' + g.minutes + ' - ' + this.routineNames[g.code];
+                    g.label = g.hour + ':' + g.minutes + ' - ' + routineNames[g.code];
 
                     const isLast = i == this.groups.length - 1;
                     if (isLast) {
@@ -122,5 +115,21 @@ export class RoutinePage implements OnInit {
         return (100 * partialValue) / totalValue;
     }
 
+    async presentAlertConfirm(code: string) {
+        const alert = await this.alertController.create({
+            cssClass: 'my-custom-class',
+            header: routineInfo[code].title,
+            message: routineInfo[code].info,
+            buttons: [
+                {
+                    text: 'Okay',
+                    handler: () => {
+                        console.log('Confirm Okay');
+                    }
+                }
+            ]
+        });
 
+        await alert.present();
+    }
 }
