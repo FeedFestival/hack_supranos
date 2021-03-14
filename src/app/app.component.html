@@ -58,7 +58,7 @@
                 <ion-buttons slot="start" style="width: 100%;">
 
                     <ion-menu-button *ngIf="showNiceStars"></ion-menu-button>
-                    <ion-button *ngIf="showNiceStars === false" (click)="onNavigate('/')">
+                    <ion-button *ngIf="showBackButton" (click)="onNavigate('/')">
                         <ion-icon name="arrow-back"></ion-icon>
                     </ion-button>
 

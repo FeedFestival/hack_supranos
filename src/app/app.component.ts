@@ -12,7 +12,9 @@ export class AppComponent implements OnInit {
 
     stars = [];
     showNiceStars = true;
+    showBackButton = false;
     disableAnimations = false;
+
     pageName: string;
     user = {
         name: 'Rock Roll',
@@ -72,6 +74,9 @@ export class AppComponent implements OnInit {
         }
 
         this.showNiceStars = path === '/';
+        this.showBackButton = this.showNiceStars
+            ? false
+            : (path !== '/login');
 
         this.setName(path);
 
