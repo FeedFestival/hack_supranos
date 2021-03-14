@@ -1,4 +1,5 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { AppliancesService } from "./appliances.services";
 
 
 @Component({
@@ -6,8 +7,16 @@ import { Component } from "@angular/core";
     templateUrl: 'appliances.page.html',
     styleUrls: ['appliances.page.scss']
 })
-export class AppliancesPage {
-    constructor() {
-        
+export class AppliancesPage implements OnInit {
+    appliences: any;
+
+    constructor(private appliancesService: AppliancesService) {
     }
+
+    ngOnInit(): void {
+        this.appliancesService.getDevices().subscribe((val) => {
+            this.appliences = val
+;        })
+    }
+
 }

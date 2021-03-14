@@ -1,11 +1,11 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
 })
-export class HomeService {
+export class AlarmService {
     resourceUrl = 'https://0a6d7ff92034.ngrok.io';
     constructor(
         private http: HttpClient
@@ -26,17 +26,8 @@ export class HomeService {
         'Pragma': 'no-cache',
         'If-Modified-Since': '0'
     };
-
-    testEnpoint(addr: string): Observable<any> {
-        const url = 'https://' + addr + '/home/' + 'testName';
-        return this.http.get<any>(url, { observe: 'response', responseType : 'text' } as any);
-    }
-
-    getSchedule(): Observable<any> {
-        return this.http.get<any>(`${this.resourceUrl}/schedule`);
-    }
-
-    triggerSleepNow(): Observable<any> {
-        return this.http.post<any>(`${this.resourceUrl}/triggerSleepNow`, {});
+    
+    createSchedule(body: any): Observable<any> {
+        return this.http.post<any>(`${this.resourceUrl}/schedule`, body);
     }
 }

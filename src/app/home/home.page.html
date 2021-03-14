@@ -3,7 +3,7 @@
     <ion-row style="margin-top: 165px">
         <ion-col style="text-align: center;">
 
-            <ion-button style="width: 150px; height: 150px;">
+            <ion-button style="width: 150px; height: 150px;" (click)="prepareToSleep()">
                 <span style="word-break: break-all; font-size: 1.3rem; text-transform: none;">
                     Prepare <br /> to sleep
                 </span>
@@ -28,7 +28,7 @@
             <ion-button style="width: 100px; height: 100px;" (click)="navigate('/alarm')">
 
                 <span style="word-break: break-all; font-size: 1rem; text-transform: none;">
-                    Alarm <br /> 8:00 AM
+                    Alarm <br /> {{ alarm.nextDayAlarm }}
                 </span>
             </ion-button>
         </ion-col>

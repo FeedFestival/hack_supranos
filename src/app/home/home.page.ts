@@ -1,6 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { pipe } from 'rxjs';
+import { take } from 'rxjs/operators';
 import { Evt } from '../app.constants';
 import { EventBusService } from '../event-bus.service';
+import { weekDaysEnum } from '../shared/weekDaysEnum';
 import { HomeService } from './home.service';
 
 @Component({
@@ -14,6 +17,9 @@ export class HomePage implements OnInit, OnDestroy {
         '134a7098ec82.ngrok.io',
     ];
 
+    appliances = [];
+    alarm: any = {};
+
     debugs: string[] = [];
 
     constructor(
@@ -23,6 +29,14 @@ export class HomePage implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
+        this.homeService.getSchedule().subscribe((value) => {
+            const todayDay = (new Date()).getDay();
+            this.alarm = value[weekDaysEnum[todayDay]];
+        })
+    }
+
+    prepareToSleep(): void {
+        this.homeService.triggerSleepNow().pipe(take(1)).subscribe();
     }
 
     testEndpoint(addr: string) {
