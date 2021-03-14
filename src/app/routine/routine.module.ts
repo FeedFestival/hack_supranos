@@ -9,14 +9,14 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
 import { RoutinePageRoutingModule } from './routine-routing.module';
 
 @NgModule({
-  imports: [
-    IonicModule,
-    CommonModule,
-    FormsModule,
-    ExploreContainerComponentModule,
-    RouterModule.forChild([{ path: '', component: RoutinePage }]),
-    RoutinePageRoutingModule,
-  ],
-  declarations: [RoutinePage]
+    imports: [
+        IonicModule,
+        CommonModule,
+        FormsModule,
+        ExploreContainerComponentModule,
+        RouterModule.forChild([{ path: '', component: RoutinePage }]),
+        RoutinePageRoutingModule,
+    ],
+    declarations: [RoutinePage]
 })
-export class RoutinePageModule {}
+export class RoutinePageModule { }

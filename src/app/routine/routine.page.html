@@ -1,1 +1,54 @@
-Routine
+<div style="height: 100%; width: 100%; position: absolute; top: 0; left: 0;">
+    <div class="gradient-line" style="position: absolute; left: 0; margin-left: 15px; width: 20px;"
+        [style.top]="margin" [style.height]="gradientHeight">
+    </div>
+</div>
+
+<ion-list style="min-height: 100%; padding: 0;">
+
+    <div *ngFor="let group of groups" class="time-item" [ngClass]="group.class"
+        [style.height]="group.height">
+
+        <div class="left-side-event"></div>
+        <div class="event-line"></div>
+        <div class="event-content">
+            <div class="event-circle">
+                <div class="icon-cont" [ngSwitch]="group.code">
+
+                    <div *ngSwitchCase="'wakeUp'" class="circle-icon">
+                        <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="alarm-clock" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-alarm-clock fa-w-16"><path fill="currentColor" d="M256 64C132.26 64 32 164.29 32 288a222.69 222.69 0 0 0 44.75 134l-40.1 40.09a16 16 0 0 0 0 22.63l22.63 22.62a16 16 0 0 0 22.62 0l40.1-40.12a222.82 222.82 0 0 0 268 0l40.1 40.09a16 16 0 0 0 22.63 0l22.62-22.62a16 16 0 0 0 0-22.63L435.21 422A222.7 222.7 0 0 0 480 288c0-123.71-100.3-224-224-224zm0 400a176 176 0 1 1 176-176 176 176 0 0 1-176 176zM96 0A96 96 0 0 0 0 96a94.81 94.81 0 0 0 15.3 51.26L161.2 25.68A95.63 95.63 0 0 0 96 0zm184 292.47V168a8 8 0 0 0-8-8h-32a8 8 0 0 0-8 8v132.16a32 32 0 0 0 12 25l64.54 51.57a8.58 8.58 0 0 0 5.87 1.72 8 8 0 0 0 5.35-2.95l20-25a8 8 0 0 0-1.25-11.27zM416 0a95.66 95.66 0 0 0-65.18 25.66l145.89 121.57A94.85 94.85 0 0 0 512 96a96 96 0 0 0-96-96z" class=""></path></svg>
+                    </div>
+
+                    <div *ngSwitchCase="'lastHeavyMeal'" class="circle-icon">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="turkey" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="svg-inline--fa fa-turkey fa-w-20"><path fill="currentColor" d="M596.39 83.63A52.25 52.25 0 0 0 572.46 85a51.78 51.78 0 0 0 10.25-36.3c-2-20.79-16.24-39.48-36.09-46a53.11 53.11 0 0 0-69 41.13 52.26 52.26 0 0 0 .43 20.88c3.53 15.67-1.36 32-14.57 41.19-15.48 10.73-24.23 17.61-48.07 28C377 110.67 333.83 96 288 96 128.94 96 0 269.13 0 384s128.94 128 288 128 288-13.12 288-128c0-50-24.54-110.94-65.24-163.91a193.68 193.68 0 0 0-61 90.2c-19.05 58.14-68.12 99.33-125 104.93q-8 .78-15.7.78c-49.36 0-93.81-23-121.94-63a148 148 0 0 1-23.87-55.58 8 8 0 0 1 7.94-9.42h16.43a8 8 0 0 1 7.71 6.28C207.22 344.46 251.64 384 309.05 384q6.19 0 12.56-.62c45.84-4.51 83.33-39.06 97.74-83.05 20.72-63.26 63.07-101.22 90.64-120.41 14.76-10.27 33.47-8.35 48.61 1.35a52.93 52.93 0 0 0 30.26 8.26c20.9-.57 40.12-14.38 47.52-33.94 12.22-32.3-7.86-66.09-39.99-71.96z" class=""></path></svg>
+                    </div>
+
+                    <div *ngSwitchCase="'lastCoffee'" class="circle-icon">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="coffee" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="svg-inline--fa fa-coffee fa-w-20"><path fill="currentColor" d="M192 384h192c53 0 96-43 96-96h32c70.6 0 128-57.4 128-128S582.6 32 512 32H120c-13.3 0-24 10.7-24 24v232c0 53 43 96 96 96zM512 96c35.3 0 64 28.7 64 64s-28.7 64-64 64h-32V96h32zm47.7 384H48.3c-47.6 0-61-64-36-64h583.3c25 0 11.8 64-35.9 64z" class=""></path></svg>
+                    </div>
+
+                    <div *ngSwitchCase="'lastNap'" class="circle-icon">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="snooze" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-inline--fa fa-snooze fa-w-14"><path fill="currentColor" d="M192 224H40a24 24 0 0 0-24 24v48a24 24 0 0 0 24 24h50.44L8.08 412.66A32 32 0 0 0 0 433.92V480a32 32 0 0 0 32 32h152a24 24 0 0 0 24-24v-48a24 24 0 0 0-24-24h-50.44l82.36-92.66a32 32 0 0 0 8.08-21.26V256a32 32 0 0 0-32-32zm0-32h96a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16h-34.75l57.38-57.38A32 32 0 0 0 320 48V32a32 32 0 0 0-32-32H184a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h42.75l-57.38 57.38A32 32 0 0 0 160 144v16a32 32 0 0 0 32 32zm256 80v-16a32 32 0 0 0-32-32h-96a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h34.75l-57.38 57.38A32 32 0 0 0 288 368v16a32 32 0 0 0 32 32h104a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16h-42.75l57.38-57.38A32 32 0 0 0 448 272z" class=""></path></svg>
+                    </div>
+
+                    <div *ngSwitchCase="'lastWorkout'" class="circle-icon">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="dumbbell" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="svg-inline--fa fa-dumbbell fa-w-20"><path fill="currentColor" d="M104 96H56c-13.3 0-24 10.7-24 24v104H8c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h24v104c0 13.3 10.7 24 24 24h48c13.3 0 24-10.7 24-24V120c0-13.3-10.7-24-24-24zm528 128h-24V120c0-13.3-10.7-24-24-24h-48c-13.3 0-24 10.7-24 24v272c0 13.3 10.7 24 24 24h48c13.3 0 24-10.7 24-24V288h24c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zM456 32h-48c-13.3 0-24 10.7-24 24v168H256V56c0-13.3-10.7-24-24-24h-48c-13.3 0-24 10.7-24 24v400c0 13.3 10.7 24 24 24h48c13.3 0 24-10.7 24-24V288h128v168c0 13.3 10.7 24 24 24h48c13.3 0 24-10.7 24-24V56c0-13.3-10.7-24-24-24z" class=""></path></svg>
+                    </div>
+
+                    <div *ngSwitchCase="'lastDrink'" class="circle-icon">
+                        <svg style="margin-top: 6px;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="glass-martini-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-glass-martini-alt fa-w-16"><path fill="currentColor" d="M502.05 57.6C523.3 36.34 508.25 0 478.2 0H33.8C3.75 0-11.3 36.34 9.95 57.6L224 271.64V464h-56c-22.09 0-40 17.91-40 40 0 4.42 3.58 8 8 8h240c4.42 0 8-3.58 8-8 0-22.09-17.91-40-40-40h-56V271.64L502.05 57.6zM443.77 48l-48 48H116.24l-48-48h375.53z" class=""></path></svg>
+                    </div>
+
+                    <div *ngSwitchCase="'goToSleep'" class="circle-icon">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bed" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="svg-inline--fa fa-bed fa-w-20"><path fill="currentColor" d="M176 256c44.11 0 80-35.89 80-80s-35.89-80-80-80-80 35.89-80 80 35.89 80 80 80zm352-128H304c-8.84 0-16 7.16-16 16v144H64V80c0-8.84-7.16-16-16-16H16C7.16 64 0 71.16 0 80v352c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16v-48h512v48c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16V240c0-61.86-50.14-112-112-112z" class=""></path></svg>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="event-name">
+                {{ group.label }}
+            </div>
+        </div>
+    </div>
+</ion-list>

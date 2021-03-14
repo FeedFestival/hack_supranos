@@ -1,0 +1,106 @@
+ion-list {
+    background: transparent;
+}
+
+.time-item {
+    transition: 0.09s all linear;
+    display: block;
+    float: left;
+    width: 100%;
+
+    > div {
+        height: 100%;
+        display: inline-block;
+        float: left;
+    }
+
+    .left-side-event {
+        width: 15px;
+        background-color: white;
+    }
+
+    .event-line {
+        width: 20px;
+    }
+
+    &.passed {
+
+        .event-circle {
+            border-left: 1px solid rgba(204, 199, 208, 1);
+            border-right: 1px solid rgba(204, 199, 208, 1);
+            background: #714b8e !important;
+        }
+
+        .event-line {
+            border-left: 1px solid rgba(204, 199, 208, 1);
+            border-right: 1px solid rgba(204, 199, 208, 1);
+            background: #714b8e;
+        }
+    }
+
+    &.next-in-line {
+
+        .event-circle {
+            background: #714b8e !important;
+        }
+
+        .event-line {
+            border-left: 1px solid rgba(204, 199, 208, 1);
+            border-right: 1px solid rgba(204, 199, 208, 1);
+            background: #714b8e;
+            height: 25px;
+        }
+    }
+
+    &.last {
+        .event-circle {
+
+            background: rgba(204, 199, 208, 1) !important;
+        }
+    }
+
+    .event-content {
+        background-color: white;
+        width: calc(100% - 35px);
+
+        .event-circle {
+            border-left: 1px solid rgba(204, 199, 208, 1);
+            border-right: 1px solid rgba(204, 199, 208, 1);
+            height: 100%;
+            width: 100%;
+            height: 30px;
+            width: 30px;
+            background: #a490b3;
+            border-radius: 50%;
+            position: relative;
+            top: 0;
+            left: -25px;
+            display: inline-block;
+            float: left;
+
+            .icon-cont {
+                text-align: center;
+
+                .circle-icon > svg {
+                    width: 20px;
+                    height: 20px;
+                    margin-top: 4px;
+                    color: white;
+                }
+            }
+        }
+
+        .event-name {
+            width: 50%;
+            display: inline-block;
+            float: left;
+            line-height: 30px;
+        }
+    }
+}
+
+.gradient-line {
+    border-left: 2px solid rgba(204, 199, 208, 1);
+    border-right: 2px solid rgba(204, 199, 208, 1);
+    background: linear-gradient(0deg, rgba(204, 199, 208, 1) 0%, rgba(114, 76, 142, 1) 100%);
+}
