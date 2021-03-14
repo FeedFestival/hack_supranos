@@ -30,4 +30,8 @@ export class AlarmService {
     createSchedule(body: any): Observable<any> {
         return this.http.post<any>(`${this.resourceUrl}/schedule`, body);
     }
+
+    updateSchedule(body: any): Observable<any> {
+        return this.http.put<any>(`${this.resourceUrl}/schedule`, body);
+    }
 }

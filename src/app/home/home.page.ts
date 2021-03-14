@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { pipe } from 'rxjs';
+import { NavigationExtras, Router } from '@angular/router';
 import { take } from 'rxjs/operators';
 import { Evt } from '../app.constants';
 import { EventBusService } from '../event-bus.service';
@@ -19,18 +19,21 @@ export class HomePage implements OnInit, OnDestroy {
 
     appliances = [];
     alarm: any = {};
+    weekAlarm: any;
 
     debugs: string[] = [];
 
     constructor(
         private eventBus: EventBusService,
-        private homeService: HomeService
+        private homeService: HomeService,
+        private router: Router
     ) {
     }
 
     ngOnInit() {
         this.homeService.getSchedule().subscribe((value) => {
             const todayDay = (new Date()).getDay();
+            this.weekAlarm = value;
             this.alarm = value[weekDaysEnum[todayDay]];
         })
     }
@@ -51,6 +54,19 @@ export class HomePage implements OnInit, OnDestroy {
             });
     }
 
+    setAlarm(): void {
+        if (!this.alarm) {
+            this.navigate('/alarm')
+        } else {
+            const params: NavigationExtras = {
+                state: {
+                    weekAlarm: this.weekAlarm
+                }
+            }
+            this.router.navigate(['/review-alarm'], params);
+        }
+    } 
+
     clear() {
         this.debugs = [];
     }
@@ -62,4 +78,6 @@ export class HomePage implements OnInit, OnDestroy {
     ngOnDestroy() {
         console.log('');
     }
+
+    
 }
