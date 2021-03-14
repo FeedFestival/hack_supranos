@@ -14,6 +14,7 @@ export class RoutinePage implements OnInit {
     margin = '';
 
     routineNames = {
+        wakeUp: 'Wake Up',
         lastNap: 'Last Nap',
         lastCoffee: 'Last Coffe',
         lastHeavyMeal: 'Last Heavy Meal',

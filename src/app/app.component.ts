@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
         this.eventBus.on(Evt.NAVIGATE, (eventData: EventData) => {
             this.onNavigate(eventData.data.url);
         });
-        // this.eventBus.emit({ event: Evt.NAVIGATE, data: { url: '/' } });
+        this.eventBus.emit({ event: Evt.NAVIGATE, data: { url: '/' } });
     }
 
     ngOnInit() {
