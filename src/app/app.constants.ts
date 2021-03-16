@@ -5,6 +5,7 @@ export class EventData {
 
 export enum Evt {
     NAVIGATE,
+    REFRESH,
     THEME_CHANGE,
     COMMITTEE_VIEW,
     HTTP_ERROR

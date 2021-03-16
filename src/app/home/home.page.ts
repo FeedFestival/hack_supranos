@@ -32,12 +32,10 @@ export class HomePage implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.homeService.getSchedule().subscribe((value) => {
-            const todayDay = (new Date()).getDay();
-            this.weekAlarm = value;
-            this.alarm = value[weekDaysEnum[todayDay]];
-            this.nextDayAlarm = this.alarm ? this.alarm.nextDayAlarm : '';
-        })
+        this.eventBus.on(Evt.REFRESH, () => {
+            this.getSchedule();
+          });
+        this.getSchedule();
     }
 
     prepareToSleep(): void {
@@ -54,6 +52,15 @@ export class HomePage implements OnInit, OnDestroy {
             }, (err?: any) => {
                 this.debugs.push('[ ERROR ]' + JSON.stringify(err));
             });
+    }
+
+    getSchedule(): void {
+        this.homeService.getSchedule().subscribe((value) => {
+            const todayDay = (new Date()).getDay();
+            this.weekAlarm = value;
+            this.alarm = value[weekDaysEnum[todayDay]];
+            this.nextDayAlarm = this.alarm ? this.alarm.nextDayAlarm : '';
+        })
     }
 
     setAlarm(): void {

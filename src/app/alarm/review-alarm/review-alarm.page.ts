@@ -63,7 +63,9 @@ export class ReviewAlarmPage {
 
   saveAlarm(): void {
     let req = { id: 1}
-    this.form.filter(v => v.isChecked);
+    this.form = this.form.filter(v => {
+      return v.isChecked === true
+    });
       this.form.forEach(element => {
         let nextDayAlarm = element.value.hour ? `${element.value.hour.text}:${element.value.minute.text}:${element.value.second.text}` : element.value;
         let hourArray = nextDayAlarm.split(':');
@@ -78,10 +80,12 @@ export class ReviewAlarmPage {
 
     if (this.weekAlarm) {
       this.alarmService.updateSchedule(req).subscribe(() => {
+        this.eventBus.emit({event: Evt.REFRESH, data: {}});
         this.eventBus.emit({ event: Evt.NAVIGATE, data: { url: '/' } });
       });
     } else {
       this.alarmService.createSchedule(req).subscribe(() => {
+        this.eventBus.emit({event: Evt.REFRESH, data: {}});
         this.eventBus.emit({ event: Evt.NAVIGATE, data: { url: '/' } });
       });
     }
@@ -137,4 +141,5 @@ export class ReviewAlarmPage {
     }
     return dayId;
 }
+
 }
