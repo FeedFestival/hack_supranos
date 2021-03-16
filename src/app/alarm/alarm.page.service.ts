@@ -1,12 +1,12 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { environment } from "src/environments/environment.prod";
 
 @Injectable({
     providedIn: 'root'
 })
 export class AlarmService {
-    resourceUrl = 'https://0a6d7ff92034.ngrok.io';
     constructor(
         private http: HttpClient
     ) { }
@@ -28,10 +28,10 @@ export class AlarmService {
     };
     
     createSchedule(body: any): Observable<any> {
-        return this.http.post<any>(`${this.resourceUrl}/schedule`, body);
+        return this.http.post<any>(`${environment.SERVER_API_URL}/schedule`, body);
     }
 
     updateSchedule(body: any): Observable<any> {
-        return this.http.put<any>(`${this.resourceUrl}/schedule`, body);
+        return this.http.put<any>(`${environment.SERVER_API_URL}/schedule`, body);
     }
 }

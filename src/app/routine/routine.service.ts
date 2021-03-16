@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
     providedIn: 'root'
@@ -28,7 +29,6 @@ export class RoutineService {
     };
 
     getRoutines(day: any): Observable<any> {
-        const url = 'https://0a6d7ff92034.ngrok.io/routine/' + day;
-        return this.http.get<any>(url);
+        return this.http.get<any>(`${environment.SERVER_API_URL}/routine/${day.toUpperCase()}`);
     }
 }

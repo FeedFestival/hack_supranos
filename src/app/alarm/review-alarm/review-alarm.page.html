@@ -7,7 +7,7 @@
         <ion-list>
             <ion-item *ngFor="let entry of form">
                 <ion-label>{{entry.text}}</ion-label>
-                <ion-datetime display-format="HH:mm" picker-format="HH:mm" [(ngModel)]="entry.value"
+                <ion-datetime display-format="HH:mm" picker-format="HH:mm:ss" [(ngModel)]="entry.value"
                     (ngModelChange)="presentAlertConfirm()"
                     aria-expanded="false" aria-haspopup="true" aria-labelledby="ion-dt-4-lbl"
                     class="ios in-item hydrated">

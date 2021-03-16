@@ -20,13 +20,13 @@ export interface IForm {
 
 export class ReviewAlarmPage {
   public form: IForm[] = [
-    { text: 'Monday', isChecked: true, value: '1990-02-19T07:43Z' },
-    { text: 'Tuesday', isChecked: true, value: '1990-02-19T07:43Z' },
-    { text: 'Wednesday', isChecked: true, value: '1990-02-19T07:43Z' },
-    { text: 'Thursday', isChecked: true, value: '1990-02-19T07:43Z' },
-    { text: 'Friday', isChecked: true, value: '1990-02-19T07:43Z' },
-    { text: 'Saturday', isChecked: true, value: '1990-02-19T07:43Z' },
-    { text: 'Sunday', isChecked: true, value: '1990-02-19T07:43Z' }
+    { text: 'Monday', isChecked: true, value: '' },
+    { text: 'Tuesday', isChecked: true, value: '' },
+    { text: 'Wednesday', isChecked: true, value: '' },
+    { text: 'Thursday', isChecked: true, value: '' },
+    { text: 'Friday', isChecked: true, value: '' },
+    { text: 'Saturday', isChecked: true, value: '' },
+    { text: 'Sunday', isChecked: true, value: '' }
   ];
   weekAlarm: any;
 
@@ -40,13 +40,22 @@ export class ReviewAlarmPage {
           });
         } else {
           this.weekAlarm = this.router.getCurrentNavigation().extras.state.weekAlarm;
-          this.form[0].value = this.weekAlarm['monday'].nextDayAlarm;
-          this.form[1].value = this.weekAlarm['tuesday'].nextDayAlarm;
-          this.form[2].value = this.weekAlarm['wednesday'].nextDayAlarm;
-          this.form[3].value = this.weekAlarm['thursday'].nextDayAlarm;
-          this.form[4].value = this.weekAlarm['friday'].nextDayAlarm;
-          this.form[5].value = this.weekAlarm['saturday'].nextDayAlarm;
-          this.form[6].value = this.weekAlarm['sunday'].nextDayAlarm;
+          this.form[0].value = this.weekAlarm[weekDaysEnum[1]] ? this.weekAlarm[weekDaysEnum[1]].nextDayAlarm : '00:00:00';
+          this.form[1].value = this.weekAlarm[weekDaysEnum[2]] ? this.weekAlarm[weekDaysEnum[2]].nextDayAlarm : '00:00:00';
+          this.form[2].value = this.weekAlarm[weekDaysEnum[3]] ? this.weekAlarm[weekDaysEnum[3]].nextDayAlarm : '00:00:00';
+          this.form[3].value = this.weekAlarm[weekDaysEnum[4]] ? this.weekAlarm[weekDaysEnum[1]].nextDayAlarm : '00:00:00';
+          this.form[4].value = this.weekAlarm[weekDaysEnum[5]] ? this.weekAlarm[weekDaysEnum[1]].nextDayAlarm : '00:00:00';
+          this.form[5].value = this.weekAlarm[weekDaysEnum[6]] ? this.weekAlarm[weekDaysEnum[1]].nextDayAlarm : '00:00:00';
+          this.form[6].value = this.weekAlarm[weekDaysEnum[0]] ? this.weekAlarm[weekDaysEnum[1]].nextDayAlarm : '00:00:00';
+
+          this.form[0].isChecked = this.weekAlarm[weekDaysEnum[1]] ? true : false;
+          this.form[1].isChecked = this.weekAlarm[weekDaysEnum[2]] ? true : false;
+          this.form[2].isChecked = this.weekAlarm[weekDaysEnum[3]] ? true : false;
+          this.form[3].isChecked = this.weekAlarm[weekDaysEnum[4]] ? true : false;
+          this.form[4].isChecked = this.weekAlarm[weekDaysEnum[5]] ? true : false;
+          this.form[5].isChecked = this.weekAlarm[weekDaysEnum[6]] ? true : false;
+          this.form[6].isChecked = this.weekAlarm[weekDaysEnum[0]] ? true : false;
+
         }
       }
     });
@@ -54,12 +63,13 @@ export class ReviewAlarmPage {
 
   saveAlarm(): void {
     let req = { id: 1}
+    this.form.filter(v => v.isChecked);
       this.form.forEach(element => {
-        let nextDayAlarm = element.value.hour ? `${element.value.hour.value}:${element.value.minute.value}` : element.value;
+        let nextDayAlarm = element.value.hour ? `${element.value.hour.text}:${element.value.minute.text}:${element.value.second.text}` : element.value;
         let hourArray = nextDayAlarm.split(':');
         let bedTime = `${this.convertToDoubleDigit(Math.abs(hourArray[0] - 8))}:${hourArray[1]}`
         req[element.text.toLowerCase()] = {
-          id: weekDaysEnum[element.text.toLowerCase()],
+          id: this.setDayDbCorespondingId(element),
           weekDay: element.text.toUpperCase(),
           bedTime: bedTime,
           nextDayAlarm: nextDayAlarm
@@ -97,5 +107,34 @@ export class ReviewAlarmPage {
 
   private convertToDoubleDigit(n: number) {
     return ('00' + n).slice(-2);
+}
+
+  private setDayDbCorespondingId(element: any): any {
+    let dayId;
+    switch (element.text.toLowerCase()) {
+      case weekDaysEnum[1]:
+        dayId = 89;
+        break;
+      case weekDaysEnum[2]:
+        dayId = 93;
+        break;
+      case weekDaysEnum[3]:
+        dayId = 94;
+        break;
+      case weekDaysEnum[4]:
+        dayId = 92;
+        break;
+      case weekDaysEnum[5]:
+        dayId = 88;
+        break;
+      case weekDaysEnum[6]:
+        dayId = 90;
+        break;
+      case weekDaysEnum[7]:
+      default:
+        dayId = 91;
+        break;
+    }
+    return dayId;
 }
 }

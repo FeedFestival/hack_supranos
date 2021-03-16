@@ -26,7 +26,7 @@ export class RoutinePage implements OnInit {
         const hours = 24;
         const percentPerHour = fullSpace / hours;
         const today = new Date();
-        const day = getDayOfWeek[today.getDay()];
+        const day = getDayOfWeek[today.getDay()-1];
 
         this.routineService.getRoutines(day)
             .subscribe(result => {

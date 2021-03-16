@@ -18,8 +18,9 @@ export class HomePage implements OnInit, OnDestroy {
     ];
 
     appliances = [];
-    alarm: any = {};
+    alarm: any;
     weekAlarm: any;
+    nextDayAlarm: any;
 
     debugs: string[] = [];
 
@@ -35,6 +36,7 @@ export class HomePage implements OnInit, OnDestroy {
             const todayDay = (new Date()).getDay();
             this.weekAlarm = value;
             this.alarm = value[weekDaysEnum[todayDay]];
+            this.nextDayAlarm = this.alarm ? this.alarm.nextDayAlarm : '';
         })
     }
 

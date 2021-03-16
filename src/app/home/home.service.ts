@@ -1,12 +1,12 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
     providedIn: 'root'
 })
 export class HomeService {
-    resourceUrl = 'https://0a6d7ff92034.ngrok.io';
     constructor(
         private http: HttpClient
     ) { }
@@ -33,10 +33,10 @@ export class HomeService {
     }
 
     getSchedule(): Observable<any> {
-        return this.http.get<any>(`${this.resourceUrl}/schedule`);
+        return this.http.get<any>(`${environment.SERVER_API_URL}/schedule`);
     }
 
     triggerSleepNow(): Observable<any> {
-        return this.http.post<any>(`${this.resourceUrl}/triggerSleepNow`, {});
+        return this.http.post<any>(`${environment.SERVER_API_URL}/triggerSleepNow`, {});
     }
 }
