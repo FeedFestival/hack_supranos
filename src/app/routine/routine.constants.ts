@@ -1,7 +1,7 @@
 export const routineNames = {
     wakeUp: 'Wake Up',
     lastNap: 'Last Nap',
-    lastCoffee: 'Last Coffe',
+    lastCoffee: 'Last Coffee',
     lastHeavyMeal: 'Last Heavy Meal',
     lastWorkout: 'Last Workout',
     lastDrink: 'Last Drink',
@@ -18,7 +18,7 @@ export const routineInfo = {
         info: 'Naps can help make up for lost sleep, but late afternoon naps can make it harder to fall asleep at night.'
     },
     lastCoffee: {
-        title: 'Last Coffe',
+        title: 'Last Coffee',
         info: 'Avoid caffeine and nicotine. Coffee, colas, certain teas, and chocolate contain the stimulant caffeine, and its effects can take as long as eight hours to wear off fully. Therefore, a cup of coffee in the late afternoon can make it hard for you to fall asleep at night.'
     },
     lastHeavyMeal: {

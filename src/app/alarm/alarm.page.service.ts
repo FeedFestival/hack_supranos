@@ -26,7 +26,7 @@ export class AlarmService {
         'Pragma': 'no-cache',
         'If-Modified-Since': '0'
     };
-    
+
     createSchedule(body: any): Observable<any> {
         return this.http.post<any>(`${environment.SERVER_API_URL}/schedule`, body);
     }

@@ -45,7 +45,7 @@ export class RoutinePage implements OnInit {
                     const g = this.groups[i];
                     g.id = i;
 
-                    g.hour = parseInt(g.time.substring(0, 2), 10);
+                    g.hour = this.getHourInt(g);
                     g.minutes = g.time.substring(3, 5);
 
                     if (hour > g.hour) {
@@ -69,7 +69,7 @@ export class RoutinePage implements OnInit {
                     const nextI = i + 1;
                     const nextG = this.groups.length > nextI ? this.groups[nextI] : null;
                     if (nextG) {
-                        nextG.hour = parseInt(nextG.time.substring(0, 2), 10);
+                        nextG.hour = this.getHourInt(nextG);
                         const diff = nextG.hour - g.hour;
                         const newPerc = (diff * percent);
                         totalPercent += newPerc;
@@ -110,6 +110,14 @@ export class RoutinePage implements OnInit {
 
                 lastOfGroups.height = lastOfGroups.percent + 1 + '%';
             });
+    }
+
+    private getHourInt(g) {
+        let hour = parseInt(g.time.substring(0, 2), 10);
+        if (hour == 0) {
+            hour = 24;
+        }
+        return hour;
     }
 
     private percentage(partialValue, totalValue) {
