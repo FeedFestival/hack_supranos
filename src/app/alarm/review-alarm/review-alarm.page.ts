@@ -68,6 +68,7 @@ export class ReviewAlarmPage {
     });
       this.form.forEach(element => {
         let nextDayAlarm = element.value.hour ? `${element.value.hour.text}:${element.value.minute.text}:${element.value.second.text}` : element.value;
+        nextDayAlarm = nextDayAlarm.includes('T') ?  nextDayAlarm.split('T')[1].split('.')[0] : nextDayAlarm; 
         let hourArray = nextDayAlarm.split(':');
         let bedTime = `${this.convertToDoubleDigit(Math.abs(hourArray[0] - 8))}:${hourArray[1]}`
         req[element.text.toLowerCase()] = {
