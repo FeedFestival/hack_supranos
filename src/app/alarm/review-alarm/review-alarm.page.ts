@@ -69,8 +69,7 @@ export class ReviewAlarmPage {
       this.form.forEach(element => {
         let nextDayAlarm = element.value.hour ? `${element.value.hour.text}:${element.value.minute.text}:${element.value.second.text}` : element.value;
         nextDayAlarm = nextDayAlarm.includes('T') ?  nextDayAlarm.split('T')[1].split('.')[0] : nextDayAlarm; 
-        let hourArray = nextDayAlarm.split(':');
-        let bedTime = `${this.convertToDoubleDigit(Math.abs(hourArray[0] - 8))}:${hourArray[1]}`
+        let bedTime = this.calculateBedTime(nextDayAlarm);
         req[element.text.toLowerCase()] = {
           id: this.setDayDbCorespondingId(element),
           weekDay: element.text.toUpperCase(),
@@ -141,6 +140,13 @@ export class ReviewAlarmPage {
         break;
     }
     return dayId;
+}
+
+private calculateBedTime(nextDayAlarm: any): string {
+  let hourArray = nextDayAlarm.split(':');
+  const h = hourArray[0] - 8;
+  const hour = h < 0 ? 24 + h : h;
+  return `${this.convertToDoubleDigit(hour)}:${hourArray[1]}`
 }
 
 }
